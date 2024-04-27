@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Search Results for "{{ search_query }}"</h2>
+    {% if search_results %}
+        <ul>
+            {% for post in search_results %}
+                <li><a href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+{% endblock %}
